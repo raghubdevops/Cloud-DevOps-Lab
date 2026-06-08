@@ -1,9 +1,9 @@
 #variable "resource_group_name" {
- # default = "rg-devops-lab"
+# default = "rg-devops-lab"
 
 #}
 #variable "location" {
- # default = "Central India"
+# default = "Central India"
 
 #}
 
