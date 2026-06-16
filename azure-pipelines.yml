@@ -38,13 +38,17 @@ steps:
   #displayName: "Terraform Init"
 
 # Terraform Validate
-- script: |
-    cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
-    terraform validate
-  displayName: "Terraform Validate"
-
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'azure-terraform-connection'
 # Terraform Plan
-- script: |
-    cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
-    terraform plan
-  displayName: "Terraform Plan"
+##   cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
+  #  terraform plan
+  #displayName: "Terraform Plan"
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'azure-terraform-connection'
