@@ -20,11 +20,22 @@ steps:
     terraform -version
   displayName: "Install Terraform"
 
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendAzureRmUseEntraIdForAuthentication: false
+    backendServiceArm: 'azure-terraform-connection'
+    backendAzureRmResourceGroupName: 'rg-devops-lab'
+    backendAzureRmStorageAccountName: 'raghudevopslab001'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'sp=r&st=2026-06-16T16:49:14Z&se=2026-06-17T01:04:14Z&spr=https&sv=2026-02-06&sr=c&sig=22LJy1%2FOARGXcgx5MGAJP2UuA24lhDiWv%2FM0X1QtB8c%3D'
+    #backendAzureRmKey: ''
 # Terraform Init
-- script: |
-    cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
-    terraform init
-  displayName: "Terraform Init"
+#- script: |
+ #   cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
+  #  terraform init
+  #displayName: "Terraform Init"
 
 # Terraform Validate
 - script: |
