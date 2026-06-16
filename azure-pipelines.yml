@@ -38,11 +38,7 @@ steps:
   #displayName: "Terraform Init"
 
 # Terraform Validate
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'apply'
-    environmentServiceNameAzureRM: 'azure-terraform-connection'
+
 # Terraform Plan
 ##   cd $(System.DefaultWorkingDirectory)/Terraform/RG-Lab
   #  terraform plan
